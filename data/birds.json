@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "campaign": "City Bird Month",
+    "is_placeholder": true,
+    "note": "PROTOTYPE DATA. Every record flagged is_placeholder: true holds stand-in copy, locations, images or models that must be replaced with approved content (species facts from NDOW, client-confirmed locations, licensed photos and 3D models). Field names mirror the planned WordPress custom post types (species, locations) and their ACF fields."
+  },
+  "species": [
+    {
+      "id": "american-white-pelican",
+      "is_placeholder": true,
+      "common_name": "American white pelican",
+      "scientific_name": "Pelecanus erythrorhynchos",
+      "summary": "One of North America's largest birds, with a wingspan of about nine feet. Flocks soar over the Lahontan Valley on their way to feed in shallow wetlands.",
+      "id_tips": [
+        "Huge white bird with a long orange bill and pouch",
+        "Black flight feathers show only when the wings are spread",
+        "Scoops fish while swimming; it does not plunge-dive",
+        "Often soars in slow, wheeling flocks high overhead"
+      ],
+      "habitat": "Shallow lakes, marshes and reservoirs with plenty of fish.",
+      "best_season": "Spring through early fall (March to October)",
+      "where_to_find": "Look over open water at Stillwater and on calm mornings at Soda Lake.",
+      "location_ids": ["stillwater-nwr", "soda-lake"],
+      "photo": {
+        "src": "assets/cards/american-white-pelican.png",
+        "alt": "Placeholder illustration of an American white pelican standing in a marsh",
+        "credit": "Placeholder artwork, not a photo",
+        "is_placeholder": true
+      },
+      "model": {
+        "src": "models/american-white-pelican.glb",
+        "alt": "3D model of an American white pelican (stand-in duck model at pelican size)",
+        "length_m": 1.5,
+        "is_placeholder": true
+      },
+      "card": {
+        "art": "assets/cards/american-white-pelican.png",
+        "target_index": 0
+      },
+      "source_url": "https://www.ndow.org/species-information/"
+    },
+    {
+      "id": "american-avocet",
+      "is_placeholder": true,
+      "common_name": "American avocet",
+      "scientific_name": "Recurvirostra americana",
+      "summary": "An elegant shorebird that sweeps its upturned bill side to side through shallow water to catch tiny invertebrates.",
+      "id_tips": [
+        "Long, thin bill that curves upward",
+        "Rusty-cinnamon head and neck in spring and summer",
+        "Bold black-and-white wings and long blue-gray legs",
+        "Feeds by swinging its bill through the water like a scythe"
+      ],
+      "habitat": "Shallow, open wetlands, mudflats and alkaline lake edges.",
+      "best_season": "April to September",
+      "where_to_find": "Scan the shallow edges at Stillwater, Carson Lake and Soda Lake.",
+      "location_ids": ["stillwater-nwr", "carson-lake", "soda-lake"],
+      "photo": {
+        "src": "assets/cards/american-avocet.png",
+        "alt": "Placeholder illustration of an American avocet wading in shallow water",
+        "credit": "Placeholder artwork, not a photo",
+        "is_placeholder": true
+      },
+      "model": {
+        "src": "models/american-avocet.glb",
+        "alt": "3D model of an American avocet (stand-in duck model at avocet size)",
+        "length_m": 0.45,
+        "is_placeholder": true
+      },
+      "card": {
+        "art": "assets/cards/american-avocet.png",
+        "target_index": 1
+      },
+      "source_url": "https://www.ndow.org/species-information/"
+    },
+    {
+      "id": "white-faced-ibis",
+      "is_placeholder": true,
+      "common_name": "White-faced ibis",
+      "scientific_name": "Plegadis chihi",
+      "summary": "A dark, glossy wading bird that probes mud and flooded fields with a long, down-curved bill. The Lahontan Valley is one of its key nesting areas.",
+      "id_tips": [
+        "Long bill that curves downward",
+        "Looks black at a distance; maroon with a green and bronze sheen up close",
+        "Thin white border around the face in breeding season",
+        "Flies in lines or loose V shapes with neck stretched out"
+      ],
+      "habitat": "Marshes, wet meadows and flooded farm fields.",
+      "best_season": "April to September",
+      "where_to_find": "Watch flooded fields around town and the marsh edges at Carson Lake and Stillwater.",
+      "location_ids": ["stillwater-nwr", "carson-lake", "downtown-fallon"],
+      "photo": {
+        "src": "assets/cards/white-faced-ibis.png",
+        "alt": "Placeholder illustration of a white-faced ibis among reeds",
+        "credit": "Placeholder artwork, not a photo",
+        "is_placeholder": true
+      },
+      "model": {
+        "src": "models/white-faced-ibis.glb",
+        "alt": "3D model of a white-faced ibis (stand-in duck model at ibis size)",
+        "length_m": 0.56,
+        "is_placeholder": true
+      },
+      "card": {
+        "art": "assets/cards/white-faced-ibis.png",
+        "target_index": 2
+      },
+      "source_url": "https://www.ndow.org/species-information/"
+    }
+  ],
+  "locations": [
+    {
+      "id": "stillwater-nwr",
+      "is_placeholder": true,
+      "name": "Stillwater National Wildlife Refuge",
+      "map_label": "Stillwater NWR",
+      "description": "A wide sweep of marsh and open water east of Fallon, and a major stop for birds on the Pacific Flyway.",
+      "best_season": "Spring and fall migration",
+      "access_notes": "Placeholder: gravel roads, no services. Bring water and binoculars.",
+      "directions_query": "Stillwater National Wildlife Refuge, Nevada",
+      "map": { "x": 306, "y": 150 },
+      "species_ids": ["american-white-pelican", "american-avocet", "white-faced-ibis"]
+    },
+    {
+      "id": "carson-lake",
+      "is_placeholder": true,
+      "name": "Carson Lake",
+      "map_label": "Carson Lake",
+      "description": "Wetlands and pasture south of town where shorebirds and waders gather in the shallows.",
+      "best_season": "Late spring through summer",
+      "access_notes": "Placeholder: access rules and seasonal closures to be confirmed.",
+      "directions_query": "Carson Lake Wetlands, Fallon, Nevada",
+      "map": { "x": 236, "y": 352 },
+      "species_ids": ["american-avocet", "white-faced-ibis"]
+    },
+    {
+      "id": "soda-lake",
+      "is_placeholder": true,
+      "name": "Soda Lake",
+      "map_label": "Soda Lake",
+      "description": "A deep volcanic crater lake northwest of Fallon with open water that draws birds all year.",
+      "best_season": "Year-round; best in spring",
+      "access_notes": "Placeholder: dirt road access; check conditions after rain.",
+      "directions_query": "Soda Lake, Fallon, Nevada",
+      "map": { "x": 112, "y": 196 },
+      "species_ids": ["american-white-pelican", "american-avocet"]
+    },
+    {
+      "id": "downtown-fallon",
+      "is_placeholder": true,
+      "name": "Downtown Fallon",
+      "map_label": "Downtown Fallon",
+      "description": "Start here. Pick up printed species cards along Maine Street, then watch the farm fields at the edge of town.",
+      "best_season": "City Bird Month (May)",
+      "access_notes": "Placeholder: card pick-up points to be confirmed.",
+      "directions_query": "Maine Street, Fallon, Nevada",
+      "map": { "x": 196, "y": 262 },
+      "species_ids": ["white-faced-ibis"]
+    }
+  ]
+}

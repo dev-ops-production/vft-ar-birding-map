@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compile MindAR target | AR Birding Map tools</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="../index.html">Visit Fallon <span>Birding Map tools</span></a></header>
+  <main id="main">
+    <h1>Compile the card tracking target</h1>
+    <p>Rebuilds <code>targets/cards.mind</code> from the card artwork listed in <code>data/birds.json</code> (<code>card.art</code>, ordered by <code>card.target_index</code>). Run this whenever card artwork changes or a species is added, then replace the file in <code>/targets</code>.</p>
+    <ol id="list"></ol>
+    <div class="btn-row">
+      <button class="btn btn-primary" type="button" id="compile">Compile</button>
+      <a class="btn" id="download" download="cards.mind" hidden>Download cards.mind</a>
+    </div>
+    <p id="status" role="status" class="muted">Ready.</p>
+  </main>
+
+  <!-- Same pinned builds scan.html uses. The MindAR A-Frame bundle includes the compiler. -->
+  <script src="../vendor/aframe-1.5.0.min.js"></script>
+  <script src="../vendor/mindar-image-aframe-1.2.5.prod.js"></script>
+  <script>
+    const status = document.getElementById('status');
+    const loadImage = (src) => new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('Could not load ' + src));
+      img.src = src;
+    });
+
+    let species = [];
+    fetch('../data/birds.json').then((r) => r.json()).then((data) => {
+      species = data.species.slice().sort((a, b) => a.card.target_index - b.card.target_index);
+      const list = document.getElementById('list');
+      list.start = 0;
+      species.forEach((s) => {
+        const li = document.createElement('li');
+        li.textContent = `${s.common_name}: ${s.card.art} (target_index ${s.card.target_index})`;
+        list.append(li);
+      });
+      const bad = species.findIndex((s, i) => s.card.target_index !== i);
+      if (bad !== -1) status.textContent = 'Warning: target_index values must be 0, 1, 2… with no gaps.';
+    });
+
+    // Exposed so the result can also be fetched programmatically.
+    window.compileTargets = async () => {
+      const images = await Promise.all(species.map((s) => loadImage('../' + s.card.art)));
+      const compiler = new window.MINDAR.IMAGE.Compiler();
+      await compiler.compileImageTargets(images, (percent) => {
+        status.textContent = `Compiling… ${percent.toFixed(0)}%`;
+      });
+      return compiler.exportData(); // ArrayBuffer-like
+    };
+
+    document.getElementById('compile').addEventListener('click', async (event) => {
+      event.target.disabled = true;
+      try {
+        const buffer = await window.compileTargets();
+        const link = document.getElementById('download');
+        link.href = URL.createObjectURL(new Blob([buffer]));
+        link.hidden = false;
+        status.textContent = `Done: ${species.length} targets, ${(buffer.byteLength / 1024).toFixed(0)} KB. Download and save as targets/cards.mind.`;
+      } catch (err) {
+        status.textContent = 'Failed: ' + err.message;
+      }
+      event.target.disabled = false;
+    });
+  </script>
+</body>
+</html>

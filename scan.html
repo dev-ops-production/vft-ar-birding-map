@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Scan a species card | Visit Fallon (prototype)</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">Visit Fallon <span>Birding Map</span></a>
+    <a class="progress-pill" href="index.html#checklist" data-progress>Checklist</a>
+  </header>
+  <p class="demo-flag">Prototype for team review. Locations, copy, art and 3D models are placeholders.</p>
+
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">‹ Back to the map</a></nav>
+    <p class="eyebrow">Printed card AR</p>
+    <h1>Scan a species card</h1>
+    <p class="lede">Point your phone at the picture on a printed species card and the bird will stand on it.</p>
+    <div class="panel">
+      <div class="btn-row">
+        <button class="btn btn-primary" type="button" id="start">Start camera</button>
+        <a class="btn" href="card.html">Get the cards</a>
+      </div>
+      <p class="muted small">We'll ask for your camera so we can spot the card. Video stays on your phone; nothing is recorded or uploaded.</p>
+      <p id="scan-message" role="alert" hidden></p>
+    </div>
+    <h2>Tips</h2>
+    <ul class="tips">
+      <li>Lay the card flat in good, even light.</li>
+      <li>Fit the whole picture in view, about a forearm's length away.</li>
+      <li>No printer? Open a card on another screen and point your phone at it.</li>
+    </ul>
+  </main>
+
+  <!-- The camera view is built here only after "Start camera" is tapped. -->
+  <div id="scan-stage" class="scan-stage" hidden></div>
+  <div id="scan-top" class="scan-ui top" hidden>
+    <a class="btn btn-small" href="scan.html">Close camera</a>
+  </div>
+  <div id="scan-bottom" class="scan-ui bottom" hidden>
+    <p class="scan-status" id="scan-status" role="status">Starting camera…</p>
+  </div>
+
+  <script type="module" src="js/scan.js"></script>
+</body>
+</html>

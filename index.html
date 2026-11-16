@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AR Birding Map | Visit Fallon (prototype)</title>
+  <meta name="description" content="Prototype: explore Fallon, Nevada birding locations and meet the birds in augmented reality.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">Visit Fallon <span>Birding Map</span></a>
+    <a class="progress-pill" href="index.html#checklist" data-progress>Checklist</a>
+  </header>
+  <p class="demo-flag">Prototype for team review. Locations, copy, art and 3D models are placeholders.</p>
+
+  <main id="main">
+    <p class="eyebrow">City Bird Month</p>
+    <h1>Meet the birds of Fallon</h1>
+    <p class="lede">Every spring, thousands of birds stop in the wetlands around Fallon on their way along the Pacific Flyway. Pick a spot on the map, learn who lives there, then see each bird at life size in your own space.</p>
+
+    <h2 id="map-heading">Birding map</h2>
+    <figure class="map-figure">
+      <svg viewBox="0 0 400 440" role="group" aria-labelledby="map-heading map-desc">
+        <desc id="map-desc">Illustrated map of the Fallon area with four birding locations. Each pin is a link; the same locations are listed below the map.</desc>
+
+        <g aria-hidden="true">
+          <!-- land -->
+          <rect width="400" height="440" fill="#eadfc0"/>
+          <!-- Carson Sink playa -->
+          <path d="M150 0 H400 V70 C350 92 300 60 250 78 C210 92 170 60 150 40 Z" fill="#f4eedd"/>
+          <text x="250" y="34" class="map-note" text-anchor="middle">Carson Sink</text>
+
+          <!-- farmland patchwork around town -->
+          <g stroke="#eadfc0" stroke-width="2">
+            <path d="M120 215 L170 205 L178 245 L128 258 Z" fill="#c4d6a4"/>
+            <path d="M172 204 L228 198 L232 238 L180 245 Z" fill="#b3cc95"/>
+            <path d="M230 198 L272 206 L266 250 L234 240 Z" fill="#cbdcae"/>
+            <path d="M128 260 L178 248 L184 292 L138 300 Z" fill="#b3cc95"/>
+            <path d="M212 272 L262 254 L268 298 L222 308 Z" fill="#c4d6a4"/>
+            <path d="M140 302 L184 295 L190 328 L150 334 Z" fill="#cbdcae"/>
+            <path d="M192 300 L222 310 L224 336 L194 330 Z" fill="#b3cc95"/>
+          </g>
+
+          <!-- Stillwater Range -->
+          <g>
+            <path d="M330 440 L352 300 L372 250 L384 180 L400 150 V440 Z" fill="#c9b48f"/>
+            <path d="M344 330 L366 262 L380 300 Z M362 240 L384 176 L396 226 Z M352 400 L372 340 L390 392 Z M372 130 L390 84 L400 110 V150 Z" fill="#a98f68"/>
+            <path d="M366 262 L372 281 L359 285 Z M384 176 L390 200 L376 202 Z M372 340 L380 364 L365 362 Z M390 84 L395 98 L384 100 Z" fill="#f7f1e3"/>
+            <text x="350" y="372" class="map-note" text-anchor="middle" transform="rotate(-76 350 372)">Stillwater Range</text>
+          </g>
+          <!-- low western hills -->
+          <path d="M0 300 L18 268 L34 290 L52 256 L70 300 Z M0 120 L22 88 L40 112 L58 92 L74 124 Z" fill="#c9b48f"/>
+
+          <!-- Carson River -->
+          <path d="M0 232 C40 220 60 250 96 236 C130 222 150 196 190 186 C230 176 248 150 262 128" fill="none" stroke="#7fb7c6" stroke-width="5" stroke-linecap="round"/>
+          <path d="M190 186 C220 214 232 290 236 330" fill="none" stroke="#7fb7c6" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
+          <text x="62" y="254" class="map-note">Carson River</text>
+
+          <!-- Stillwater marshes -->
+          <g fill="#9ccbd6">
+            <path d="M246 132 C256 104 296 96 318 112 C344 104 356 132 340 150 C350 176 318 190 296 178 C270 190 240 166 246 132 Z"/>
+            <ellipse cx="282" cy="92" rx="20" ry="9"/>
+            <ellipse cx="332" cy="196" rx="14" ry="7"/>
+          </g>
+          <g stroke="#5f8f5a" stroke-width="2" stroke-linecap="round">
+            <path d="M258 172 v-10 M263 174 v-13 M268 172 v-9 M330 122 v-10 M335 124 v-13 M340 122 v-9 M276 118 v-9 M281 120 v-12"/>
+          </g>
+
+          <!-- Soda Lake (crater) -->
+          <ellipse cx="112" cy="170" rx="27" ry="19" fill="#d6c39c"/>
+          <ellipse cx="112" cy="170" rx="19" ry="12" fill="#6fb0c4"/>
+          <ellipse cx="146" cy="160" rx="8" ry="5" fill="#6fb0c4"/>
+
+          <!-- Carson Lake wetlands -->
+          <path d="M196 352 C204 330 250 322 274 338 C300 340 304 372 280 382 C262 400 214 394 202 378 C192 370 192 360 196 352 Z" fill="#9ccbd6"/>
+          <g stroke="#5f8f5a" stroke-width="2" stroke-linecap="round">
+            <path d="M208 380 v-10 M213 382 v-13 M218 380 v-9 M276 350 v-10 M281 352 v-13 M286 350 v-9"/>
+          </g>
+
+          <!-- highways -->
+          <path d="M0 268 C70 262 140 258 196 262 C250 266 300 282 340 316" fill="none" stroke="#ffffff" stroke-width="4"/>
+          <path d="M0 268 C70 262 140 258 196 262 C250 266 300 282 340 316" fill="none" stroke="#9a8f78" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <path d="M204 60 C198 130 200 200 196 262 C194 320 176 380 170 440" fill="none" stroke="#ffffff" stroke-width="4"/>
+          <path d="M204 60 C198 130 200 200 196 262 C194 320 176 380 170 440" fill="none" stroke="#9a8f78" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <g font-family="system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">
+            <rect x="34" y="254" width="24" height="14" rx="4" fill="#ffffff" stroke="#5a543f"/>
+            <text x="46" y="264" fill="#3d3929">50</text>
+            <rect x="170" y="408" width="24" height="14" rx="4" fill="#ffffff" stroke="#5a543f"/>
+            <text x="182" y="418" fill="#3d3929">95</text>
+          </g>
+
+          <!-- town blocks -->
+          <g fill="#8f7d62">
+            <rect x="182" y="250" width="8" height="8"/><rect x="192" y="248" width="7" height="10"/>
+            <rect x="201" y="251" width="9" height="7"/><rect x="186" y="266" width="9" height="7"/>
+            <rect x="198" y="266" width="8" height="8"/>
+          </g>
+
+          <!-- flying birds -->
+          <g fill="none" stroke="#3d4a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M92 70 q7 -8 12 0 q5 -8 12 0"/>
+            <path d="M120 54 q6 -7 10 0 q4 -7 10 0"/>
+            <path d="M72 96 q5 -6 9 0 q4 -6 9 0"/>
+            <path d="M300 390 q6 -7 10 0 q4 -7 10 0"/>
+            <path d="M286 410 q5 -6 9 0 q4 -6 9 0"/>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(36 392)">
+            <circle r="20" fill="#fffdf8" stroke="#5a543f" stroke-width="1.5"/>
+            <path d="M0 -15 L5 0 L0 15 L-5 0 Z" fill="#a8471a"/>
+            <path d="M0 0 L5 0 L0 15 L-5 0 Z" fill="#5a543f"/>
+            <text y="-24" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#3d3929">N</text>
+          </g>
+        </g>
+
+        <!-- location links are added here from data/birds.json -->
+        <g id="map-points"></g>
+      </svg>
+      <figcaption>Illustrative map, not to scale. Tap a pin to open that location.</figcaption>
+    </figure>
+
+    <h2 id="locations-heading">Birding locations</h2>
+    <ul class="link-list" id="location-list" aria-labelledby="locations-heading">
+      <li class="muted">Loading locations…</li>
+    </ul>
+
+    <h2 id="checklist" tabindex="-1">Birds I've found</h2>
+    <div class="panel">
+      <p class="progress-line" id="progress-line" role="status"></p>
+      <ul class="checklist" id="checklist-list"></ul>
+      <p class="muted small">A bird is checked off when you launch its AR view. Your list is saved on this device only.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="scan.html">Scan a printed card</a>
+        <a class="btn" href="card.html">Print the cards</a>
+        <button class="btn" type="button" id="reset-checklist">Reset checklist</button>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>
